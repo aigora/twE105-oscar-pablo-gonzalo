@@ -2,7 +2,7 @@
 
 # include <stdio.h>
 
-
+int opcion_menu(int n);
 int main() 
 {
 	int opcion;
@@ -18,7 +18,7 @@ int main()
 	printf(" 0 - Salir\n");
 	printf("\nOpcion: ");
 	scanf("%d", &opcion);
-//	while(getchar()!='\n');
+	while(getchar()!='\n');
 	
 	while(opcion>7||opcion<0){
 		
@@ -57,3 +57,6 @@ int main()
 	
 }
 
+int opcion_menu(int n) {
+	int
+}
