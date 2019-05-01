@@ -2,6 +2,25 @@
 
 # include <stdio.h>
 
+typedef struct {
+	char codigo[5];
+	char genero [10];
+	char clase [15];
+	char tipo[10];
+	char marca[10];
+	float precio;
+	int cantidad;
+};producto
+
+int menu(void);
+void stock(Producto p[], int a);
+void buscar_producto(Producto p[], int dim);
+void nuevo_prod(Producto p[], int dim);
+void suministrar(Producto p[], int dim);
+void modificar_precio(Producto p[], int dim);
+void pedido(Producto p[], int dim);
+void devolucion(Producto p[], int dim);
+
 int opcion_menu(int n);
 int main() 
 {
