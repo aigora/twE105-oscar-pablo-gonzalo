@@ -10,7 +10,7 @@ typedef struct {
 	char marca[10];
 	float precio;
 	int cantidad;
-};producto
+}Producto;
 
 int menu(void);
 void stock(Producto p[], int a);
@@ -21,20 +21,12 @@ void modificar_precio(Producto p[], int dim);
 void pedido(Producto p[], int dim);
 void devolucion(Producto p[], int dim);
 
-int opcion_menu(int n);
+
 int main() 
 {
 	int opcion;
 	
-	printf("Indique la operacion que quiere realizar:\n");
-	printf(" 1 - Ver stock\n");
-	printf(" 2 - Registrar nuevo producto\n");
-	printf(" 3 - Suministrar stock\n");
-	printf(" 4 - Buscador de productos\n");
-	printf(" 5 - Variar precio de un producto\n");
-	printf(" 6 - Facturar pedido\n");
-	printf(" 7 - Devolucion producto\n");
-	printf(" 0 - Salir\n");
+
 	printf("\nOpcion: ");
 	scanf("%d", &opcion);
 	while(getchar()!='\n');
@@ -77,5 +69,14 @@ int main()
 }
 
 int opcion_menu(int n) {
-	int i;
+	
+	printf("Indique la operacion que quiere realizar:\n");
+	printf(" 1 - Ver stock\n");
+	printf(" 2 - Registrar nuevo producto\n");
+	printf(" 3 - Suministrar stock\n");
+	printf(" 4 - Buscador de productos\n");
+	printf(" 5 - Variar precio de un producto\n");
+	printf(" 6 - Facturar pedido\n");
+	printf(" 7 - Devolucion producto\n");
+	printf(" 0 - Salir\n");
 }
