@@ -27,9 +27,7 @@ int main()
 	int opcion;
 	
 
-	printf("\nOpcion: ");
-	scanf("%d", &opcion);
-	while(getchar()!='\n');
+	
 	
 	while(opcion>7||opcion<0){
 		
@@ -37,7 +35,7 @@ int main()
 		scanf("%d", &opcion);
 	}
 		
-
+	opcion = menu();
 	switch(opcion)
 	{
 		case 1:
@@ -69,6 +67,7 @@ int main()
 }
 
 int opcion_menu(int n) {
+	int opcion_menu;
 	
 	printf("Indique la operacion que quiere realizar:\n");
 	printf(" 1 - Ver stock\n");
@@ -79,4 +78,9 @@ int opcion_menu(int n) {
 	printf(" 6 - Facturar pedido\n");
 	printf(" 7 - Devolucion producto\n");
 	printf(" 0 - Salir\n");
+	
+	printf("\nOpcion: ");
+	scanf("%d", &opcion_menu);
+	while(getchar()!='\n');
+	
 }
