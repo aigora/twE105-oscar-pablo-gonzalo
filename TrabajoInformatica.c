@@ -25,15 +25,6 @@ void devolucion(Producto p[], int dim);
 int main() 
 {
 	int opcion;
-	
-
-	
-	
-	while(opcion>7||opcion<0){
-		
-		printf("opcion no valida, vuelva a introducir la opcion: ");
-		scanf("%d", &opcion);
-	}
 		
 	opcion = menu();
 	switch(opcion)
@@ -66,7 +57,7 @@ int main()
 	
 }
 
-int opcion_menu(int n) {
+int menu(void) {
 	int opcion_menu;
 	
 	printf("Indique la operacion que quiere realizar:\n");
@@ -83,4 +74,10 @@ int opcion_menu(int n) {
 	scanf("%d", &opcion_menu);
 	while(getchar()!='\n');
 	
+	while(opcion_menu>7||opcion_menu<0){
+		
+		printf("Opcion no valida, vuelva a introducir la opcion: ");
+		scanf("%d", &opcion_menu);
+	}
+	return opcion_menu;
 }
