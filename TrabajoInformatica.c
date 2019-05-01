@@ -58,5 +58,5 @@ int main()
 }
 
 int opcion_menu(int n) {
-	int
+	int i;
 }
