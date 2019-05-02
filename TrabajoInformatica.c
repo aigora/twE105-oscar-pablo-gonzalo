@@ -24,34 +24,33 @@ void devolucion(Producto p[], int dim);
 
 int main() 
 {
-	int opcion;
+	int opcion, cant;
 		
 	opcion = menu();
 	switch(opcion)
 	{
 		case 1:
-			printf("VER STOK---------");
+			stock(Producto p[], int cant);
 			break;
 		case 2:
-			printf("NUEVO PRODUCTO----------");
+			buscar_producto(Producto p[], int cant);
 			break;
 		case 3:
-			printf("SUMINISTRAR STOK------------");
+			nuevo_prod(Producto p[], int cant);
 			break;
 		case 4:
-			printf("BUSCAR PRODUCTO------------");
+			suministrar(Producto p[], int cant);
 			break;
 		case 5:
-			printf("VARIAR PRECIO----------");
+			modificar_precio(Producto p[], int cant);
 			break;
 		case 6:
-			printf("FACTURAR PEDIDO----------");
+			 pedido(Producto p[], int cant);
 			break;
 		case 7:
-			printf("DEVOLUCION PRODUCTO----------");
+			 devolucion(Producto p[], int cant);
 			break;
 		case 0:
-			printf("SALIENDO...");
 			return 0;
 	}
 	
