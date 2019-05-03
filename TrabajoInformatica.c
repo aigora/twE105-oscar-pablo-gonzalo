@@ -1,6 +1,8 @@
 // Trabajo: REGISTROS ALMACEN
 
-# include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct {
 	char codigo[5];
