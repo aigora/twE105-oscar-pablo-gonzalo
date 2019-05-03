@@ -84,11 +84,20 @@ int menu(void) {
 }
 
 void buscar_producto(Producto p[], int dim){
-	int i, v;
+	int i,j;
 	char busqueda[5];
 	
 	printf("\nIntroduzca el codigo: ");
 	gets(busqueda); 
+	
+	j=0;
+	for(i=0;i<dim-1;i++){
+		if(strcmp(busqueda,p[i].codigo)==0){
+			j=5;
+			break;
+		}
+	}
+	
 }
 
 
