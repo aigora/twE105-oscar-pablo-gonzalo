@@ -82,3 +82,26 @@ int menu(void) {
 	}
 	return opcion_menu;
 }
+
+void buscar_producto(Producto p[], int dim){
+	int i, v;
+	char busqueda[5];
+	
+	printf("\nIntroduzca el codigo: ");
+	gets(busqueda); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
