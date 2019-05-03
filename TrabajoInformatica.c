@@ -97,7 +97,12 @@ void buscar_producto(Producto p[], int dim){
 			break;
 		}
 	}
-	
+	if(v==5){
+		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, pî).tipo, p[i].marca, p[i].cantidad, p[i].precio);
+	}
+	else{
+		printf("\nEl codigo introducido no existe. \n");
+	}
 }
 
 
