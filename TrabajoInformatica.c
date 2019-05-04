@@ -98,7 +98,16 @@ void stock(Producto p[], int a){
 	}while(vuelta != 's' || vuelta != 's')
 }
 
-void suministrar(Producto p[], int i) {
+void suministrar(Producto p[], int dim) {
+	
+	int i;
+	
+	FILE *archivo3;
+	
+	printf("Productos en stock: \n");
+	for(i = 0; i <= dim-1; i++) {
+		printf("%s %s %s %s %s %i\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+	}
 	
 }
 
