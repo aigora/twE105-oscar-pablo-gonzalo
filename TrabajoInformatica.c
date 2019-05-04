@@ -26,7 +26,7 @@ void devolucion(Producto p[], int dim);
 
 int main() 
 {
-	int opcion, cant;
+	int opcion, cant, i;
 	
 	while(1){
 		FILE *g;
@@ -42,6 +42,7 @@ int main()
 		fflush(stdin);
 		
 		Producto p[cant];
+		
 		for(i=0; i<cant-1; i++){
 			fscanf(g, "%s %s %s %s %s %d %f", 
 				p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, &p[i].cantidad, &p[i].precio);
@@ -116,7 +117,7 @@ void stock(Producto p[], int a){
 		printf("Introduzca S para salir y volver al menu principal.\n");
 		scanf("%c", &vuelta);
 		while(getchar() != '\n');
-	}while(vuelta != 's' || vuelta != 's')
+	}while(vuelta != 's' || vuelta != 's');
 }
 
 void suministrar(Producto p[], int dim) {
@@ -128,7 +129,7 @@ void suministrar(Producto p[], int dim) {
 	
 	printf("Productos en stock: \n");
 	for(i = 0; i < dim-1; i++) {
-		printf("%s %s %s %s %s %i\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		printf("%s %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 	}
 	
 	printf("Introduzca el codigo del producto a suministrar: \n");
