@@ -16,9 +16,9 @@ typedef struct {
 
 int menu(void);
 void stock(Producto p[], int a);
-void buscar_producto(Producto p[], int dim);
 void nuevo_prod(Producto p[], int dim);
 void suministrar(Producto p[], int dim);
+void buscar_producto(Producto p[], int dim);
 void modificar_precio(Producto p[], int dim);
 void pedido(Producto p[], int dim);
 void devolucion(Producto p[], int dim);
@@ -35,13 +35,13 @@ int main()
 			stock(Producto p[], int cant);
 			break;
 		case 2:
-			buscar_producto(Producto p[], int cant);
-			break;
-		case 3:
 			nuevo_prod(Producto p[], int cant);
 			break;
-		case 4:
+		case 3:
 			suministrar(Producto p[], int cant);
+			break;
+		case 4:
+			buscar_producto(Producto p[], int cant);
 			break;
 		case 5:
 			modificar_precio(Producto p[], int cant);
