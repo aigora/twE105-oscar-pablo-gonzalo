@@ -98,6 +98,10 @@ void stock(Producto p[], int a){
 	}while(vuelta != 's' || vuelta != 's')
 }
 
+void suministrar(Producto p[], int i) {
+	
+}
+
 void buscar_producto(Producto p[], int dim){
 	int i,j;
 	char busqueda[5];
