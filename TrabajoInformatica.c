@@ -53,25 +53,25 @@ int main()
 	switch(opcion)
 	{
 		case 1:
-			stock(Producto p[], int cant);
+			stock(p, cant);
 			break;
 		case 2:
-			nuevo_prod(Producto p[], int cant);
+			nuevo_prod(p, cant);
 			break;
 		case 3:
-			suministrar(Producto p[], int cant);
+			suministrar(p, cant);
 			break;
 		case 4:
-			buscar_producto(Producto p[], int cant);
+			buscar_producto(p, cant);
 			break;
 		case 5:
-			modificar_precio(Producto p[], int cant);
+			modificar_precio(p, cant);
 			break;
 		case 6:
-			 pedido(Producto p[], int cant);
+			 pedido(p, cant);
 			break;
 		case 7:
-			 devolucion(Producto p[], int cant);
+			 devolucion(p, cant);
 			break;
 		case 0:
 			return 0;
