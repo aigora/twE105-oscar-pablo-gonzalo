@@ -83,6 +83,15 @@ int menu(void) {
 	return opcion_menu;
 }
 
+void stock(Producto p[], int a){
+	int i;
+	char vuelta;
+	
+	for(i = 0; i < a; i++){
+		
+	}
+}
+
 void buscar_producto(Producto p[], int dim){
 	int i,j;
 	char busqueda[5];
