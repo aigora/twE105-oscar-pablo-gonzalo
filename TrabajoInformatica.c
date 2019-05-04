@@ -87,11 +87,15 @@ void stock(Producto p[], int a){
 	int i;
 	char vuelta;
 	
-	for(i = 0; i < a; i++){
+	for(i = 0; i < a-1; i++){
 		printf("%s %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
-	
+	do{
+		printf("Introduzca S para salir y volver al menu principal.\n");
+		scanf("%c", &vuelta);
+		while(getchar() != '\n');
+	}while(vuelta != 's' || vuelta != 's')
 }
 
 void buscar_producto(Producto p[], int dim){
