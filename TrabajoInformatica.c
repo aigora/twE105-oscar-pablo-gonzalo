@@ -127,15 +127,21 @@ void suministrar(Producto p[], int dim) {
 		printf("Suministro realizado.\n");
 		printf("%s %s %s %s %s %i\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 		
-		archivo3 = fopen("Invent.txt", "w");
+		f = fopen("Almacen.txt", "w");
 		
-		if(archivo3 == NULL) {
+		if(f == NULL) {
 			printf("Error al abrir el archivo.\n");
 		}
+		
+		fprintf(f, "%i", dim);
+		
+		for (i = 0; i < dim-1; i++) {
+			fprintf(f, "%s %s %s %s %s %i &f\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i], precio);
+		}
+		fclose(f);
 	}
-	
-	
-	
+	else 
+	printf("Codigo invalido.");
 }
 
 void buscar_producto(Producto p[], int dim){
