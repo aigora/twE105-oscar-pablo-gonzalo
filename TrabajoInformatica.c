@@ -30,7 +30,6 @@ int main()
 	
 	while(1){
 		FILE *g;
-		Producto p[];
 		
 		g = fopen("Almacen.txt", "r");
 		
@@ -42,7 +41,12 @@ int main()
 		fscanf(g, "%d", &cant);
 		fflush(stdin);
 		
-		
+		Producto p[cant];
+		for(i=0; i<cant-1; i++){
+			fscanf(g, "%s %s %s %s %s %d %f", 
+				p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, &p[i].cantidad, &p[i].precio);
+			fflush(stdin);
+		}
 	}
 		
 	opcion = menu();
@@ -120,7 +124,7 @@ void suministrar(Producto p[], int dim) {
 	int i, j = 0, cant;
 	char cod[5];
 	
-	FILE *archivo3;
+	FILE *f;
 	
 	printf("Productos en stock: \n");
 	for(i = 0; i < dim-1; i++) {
