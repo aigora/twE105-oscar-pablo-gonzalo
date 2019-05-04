@@ -88,8 +88,10 @@ void stock(Producto p[], int a){
 	char vuelta;
 	
 	for(i = 0; i < a; i++){
-		
+		printf("%s %s %s %s %s %i %f\n", 
+			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
+	
 }
 
 void buscar_producto(Producto p[], int dim){
