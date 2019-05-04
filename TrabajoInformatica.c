@@ -27,6 +27,23 @@ void devolucion(Producto p[], int dim);
 int main() 
 {
 	int opcion, cant;
+	
+	while(1){
+		FILE *g;
+		Producto p[];
+		
+		g = fopen("Almacen.txt", "r");
+		
+		if(g == NULL){
+			printf("Error al abrir el archivo\n");
+			return -1;
+		}
+		
+		fscanf(g, "%d", &cant);
+		fflush(stdin);
+		
+		
+	}
 		
 	opcion = menu();
 	switch(opcion)
@@ -131,6 +148,7 @@ void suministrar(Producto p[], int dim) {
 		
 		if(f == NULL) {
 			printf("Error al abrir el archivo.\n");
+			return -2;
 		}
 		
 		fprintf(f, "%i", dim);
