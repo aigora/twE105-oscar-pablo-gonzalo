@@ -100,7 +100,7 @@ void stock(Producto p[], int a){
 
 void suministrar(Producto p[], int dim) {
 	
-	int i, j = 0;
+	int i, j = 0, cant;
 	char cod[5];
 	
 	FILE *archivo3;
@@ -117,6 +117,15 @@ void suministrar(Producto p[], int dim) {
 		if(strcmp(p[i].codigo, cod) == 0) {
 			j = 5;
 		}
+	}
+	
+	if (j == 5) {
+		printf("Introduzca la cantidad que desea suministrar: \n");
+		scanf("%i", &cant);
+		
+		p[i].cantidad = p[i].cantidad + cant;
+		printf("Suministro realizado.\n");
+		printf("%s %s %s %s %s %i\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 	}
 	
 	
