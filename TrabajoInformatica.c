@@ -126,6 +126,12 @@ void suministrar(Producto p[], int dim) {
 		p[i].cantidad = p[i].cantidad + cant;
 		printf("Suministro realizado.\n");
 		printf("%s %s %s %s %s %i\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		
+		archivo3 = fopen("Invent.txt", "w");
+		
+		if(archivo3 == NULL) {
+			printf("Error al abrir el archivo.\n");
+		}
 	}
 	
 	
