@@ -182,7 +182,7 @@ void buscar_producto(Producto p[], int dim){
 			break;
 		}
 	}
-	if(v==5){
+	if(j==5){
 		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 	else{
