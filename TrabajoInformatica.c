@@ -27,6 +27,7 @@ void devolucion(Producto p[], int dim);
 int main() 
 {
 	int opcion, cant, i;
+	Producto p[cant];
 	
 	while(1){
 		FILE *g;
@@ -41,7 +42,7 @@ int main()
 		fscanf(g, "%d", &cant);
 		fflush(stdin);
 		
-		Producto p[cant];
+		
 		
 		for(i=0; i<cant-1; i++){
 			fscanf(g, "%s %s %s %s %s %d %f", 
@@ -147,7 +148,7 @@ void suministrar(Producto p[], int dim) {
 		
 		p[i].cantidad = p[i].cantidad + cant;
 		printf("Suministro realizado.\n");
-		printf("%s %s %s %s %s %i\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		printf("%s %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 		
 		f = fopen("Almacen.txt", "w");
 		
@@ -159,7 +160,7 @@ void suministrar(Producto p[], int dim) {
 		fprintf(f, "%i", dim);
 		
 		for (i = 0; i < dim-1; i++) {
-			fprintf(f, "%s %s %s %s %s %i &f\n", p[i],codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i], precio);
+			fprintf(f, "%s %s %s %s %s %i &f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
