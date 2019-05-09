@@ -208,6 +208,10 @@ void nuevo_producto(Producto p[], int dim){
 	gets(p[dim-1].marca);
 	cont=dim;
 	
+	for(i=0;i<dim-1;i++){
+		
+	}
+	
 }
 
 
