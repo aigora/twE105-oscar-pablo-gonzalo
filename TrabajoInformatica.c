@@ -169,6 +169,7 @@ void suministrar(Producto p[], int dim) {
 }
 
 void buscar_producto(Producto p[], int dim){
+
 	int i,j;
 	char busqueda[5];
 	
@@ -191,6 +192,23 @@ void buscar_producto(Producto p[], int dim){
 }
 
 
+void nuevo_producto(Producto p[], int dim){
+	
+	int i, cont;
+	printf("Datos del nuevo producto: ");
+	printf("Codigo: ");
+	gets(p[dim-1].codigo);
+	printf("Genero: ");
+	gets(p[dim-1].genero);
+	printf("Clase: ");
+	gets(p[dim-1].clase);
+	printf("Tipo: ");
+	gets(p[dim-1].tipo);
+	printf("Marca: ");
+	gets(p[dim-1].marca);
+	cont=dim;
+	
+}
 
 
 
