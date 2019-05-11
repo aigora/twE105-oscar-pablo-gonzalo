@@ -209,7 +209,7 @@ void nuevo_producto(Producto p[], int dim){
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant, flag1 = 1
+	int i, cant, flag1;
 	char cod[5], gen[10], clas[15], tip[10], marc[10];
 	float prec;
 	
@@ -230,7 +230,12 @@ void pedido(Producto p[], int dim){
 		scanf("%d", &cant);
 		fflush(stdin);
 		while(getchar() != '\n');
-	}	
+		
+		
+		printf("Introduzca 1 si quiere seguir añadiendo algun producto mas o cualquier letra para salir, gracias.\n");
+		scanf("%d", &flag1);
+		while(getchar() != '\n');
+	}while(flag1 == 1);	
 }
 
 
