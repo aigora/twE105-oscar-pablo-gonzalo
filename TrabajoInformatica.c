@@ -113,11 +113,6 @@ void stock(Producto p[], int a){
 		printf("%s %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
-	do{
-		printf("Introduzca S para salir y volver al menu principal.\n");
-		scanf("%c", &vuelta);
-		while(getchar() != '\n');
-	}while(vuelta != 's' || vuelta != 's');
 }
 
 void suministrar(Producto p[], int dim) {
@@ -145,7 +140,7 @@ void suministrar(Producto p[], int dim) {
 		printf("Introduzca la cantidad que desea suministrar: \n");
 		scanf("%i", &cant);
 		
-		p[i].cantidad = p[i].cantidad + cant;
+		p[i].cantidad += cant;
 		printf("Suministro realizado.\n");
 		printf("%s %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 		
@@ -169,25 +164,25 @@ void suministrar(Producto p[], int dim) {
 
 void buscar_producto(Producto p[], int dim){
 
-	int i,j;
+	int i,j, flag = 1;
 	char busqueda[5];
 	
 	printf("\nIntroduzca el codigo: ");
 	gets(busqueda); 
 	
 	j=0;
-	for(i=0;i<dim-1;i++){
+	for(i=0;i<dim-1 && flag == 1;i++){
 		if(strcmp(busqueda,p[i].codigo)==0){
 			j=5;
-			break;
+			flag = 0;
 		}
 	}
-	if(j==5){
+	if(j==5)
 		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
-	}
-	else{
+	
+	else
 		printf("\nEl codigo introducido no existe. \n");
-	}
+	
 }
 
 
