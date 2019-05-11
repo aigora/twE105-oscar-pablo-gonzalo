@@ -208,10 +208,30 @@ void nuevo_producto(Producto p[], int dim){
 	
 }
 
-
-
-
-
+void pedido(Producto p[], int dim){
+	int i, cant, flag1 = 1
+	char cod[5], gen[10], clas[15], tip[10], marc[10];
+	float prec;
+	
+	do{
+		printf("Introduzca los datos del pedido\n");
+		
+		printf("Codigo:\n");
+		gets(cod);
+		printf("Genero:\n");
+		gets(gen);
+		printf("Clase:\n");
+		gets(clas);
+		printf("Tipo:\n");
+		gets(tip);
+		printf("Marca:\n");
+		gets(marc);
+		printf("Cantidad:\n");
+		scanf("%d", &cant);
+		fflush(stdin);
+		while(getchar() != '\n');
+	}	
+}
 
 
 
