@@ -15,30 +15,30 @@ typedef struct {
 }Producto;
 
 int menu(void);
-void stock(Producto p[], int a);
-void nuevo_prod(Producto p[], int dim);
-void suministrar(Producto p[], int dim);
-void buscar_producto(Producto p[], int dim);
-void modificar_precio(Producto p[], int dim);
-void pedido(Producto p[], int dim);
-void devolucion(Producto p[], int dim);
+void stock(Producto [], int );
+void nuevo_prod(Producto [], int );
+void suministrar(Producto [], int );
+void buscar_producto(Producto [], int );
+void modificar_precio(Producto [], int );
+void pedido(Producto [], int );
+void devolucion(Producto [], int );
 
 
 int main() 
 {
-	int opcion, cant, i;
+	int opcion, cant, i, flag = 1;
 	Producto p[cant];
+	FILE *g;
+		
+	g = fopen("Almacen.txt", "r");
+		
+	if(g == NULL){
+		printf("Error al abrir el archivo\n");
+		return -1;
+	}
+		
 	
-	while(1){
-		FILE *g;
-		
-		g = fopen("Almacen.txt", "r");
-		
-		if(g == NULL){
-			printf("Error al abrir el archivo\n");
-			return -1;
-		}
-		
+	while(flag{
 		fscanf(g, "%d", &cant);
 		fflush(stdin);
 		
@@ -49,35 +49,36 @@ int main()
 				p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, &p[i].cantidad, &p[i].precio);
 			fflush(stdin);
 		}
-	}
 		
-	opcion = menu();
-	switch(opcion)
-	{
-		case 1:
-			stock(p, cant);
-			break;
-		case 2:
-			nuevo_prod(p, cant);
-			break;
-		case 3:
-			suministrar(p, cant);
-			break;
-		case 4:
-			buscar_producto(p, cant);
-			break;
-		case 5:
-			modificar_precio(p, cant);
-			break;
-		case 6:
-			 pedido(p, cant);
-			break;
-		case 7:
-			 devolucion(p, cant);
-			break;
-		case 0:
-			return 0;
+		opcion = menu();
+		switch(opcion)
+		{
+			case 1:
+				stock(p, cant);
+				break;
+			case 2:
+				nuevo_prod(p, cant);
+				break;
+			case 3:
+				suministrar(p, cant);
+				break;
+			case 4:
+				buscar_producto(p, cant);
+				break;
+			case 5:
+				modificar_precio(p, cant);
+				break;
+			case 6:
+				 pedido(p, cant);
+				break;
+			case 7:
+				 devolucion(p, cant);
+				break;
+			case 0:
+				flag = 0;
+		}
 	}
+	fclose(g);
 	
 }
 
@@ -94,15 +95,13 @@ int menu(void) {
 	printf(" 7 - Devolucion producto\n");
 	printf(" 0 - Salir\n");
 	
-	printf("\nOpcion: ");
-	scanf("%d", &opcion_menu);
-	while(getchar()!='\n');
-	
-	while(opcion_menu>7||opcion_menu<0){
-		
-		printf("Opcion no valida, vuelva a introducir la opcion: ");
+	do{
+		printf("\nOpcion: ");
 		scanf("%d", &opcion_menu);
-	}
+		while(getchar()!='\n');
+	}while(opcion_menu>7||opcion_menu<0);
+
+	
 	return opcion_menu;
 }
 
