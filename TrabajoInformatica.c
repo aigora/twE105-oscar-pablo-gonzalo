@@ -217,6 +217,43 @@ void nuevo_producto(Producto p[], int dim){
 	}
 	
 }
+void modificar_precio(Producto p[], int dim){
+	
+	int i, j = 0, incre, flag = 1;
+	FILE *f;
+	char cod[5];
+	printf("Codigo del producto al que le quiere cambiar el precio:");
+	gets(cod);
+	
+	for (i = 0; i < dim-1 && flag == 1; i++) {
+		if (strcmp(p[i].codigo, cod) == 0) {
+			j = 1;
+			flag = 0;
+		}
+	}
+	
+	if (j == 1) {
+		printf("Introduzca la cantidad que desea aumentar o disminuir el precio: \n");
+		printf("(Para rebajar el precio ponga signo negativo)\n");
+		
+		scanf("%f", &incre);
+		
+		p[i].precio += incre;
+		
+		printf("Precio modificado: \n");
+		printf("%s %i"; p[i].codigo, p[i].precio)
+		f = fopen("Almacen.txt", "w");
+		for (i = 0; i < dim-1; i++) {
+			fprintf("%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		}
+		fclose(f);
+	}
+	
+	else printf("Codigo invalido: \n");
+	
+	printf("Pulse intro para volver al menu principal.\n");
+	while(getchar() != '\n');
+}
 
 void pedido(Producto p[], int dim){
 	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x, cont=0;
@@ -317,43 +354,6 @@ void pedido(Producto p[], int dim){
 }
 
 
-void modificar_precio(Producto p[], int dim){
-	
-	int i, j = 0, incre, flag = 1;
-	FILE *f;
-	char cod[5];
-	printf("Codigo del producto al que le quiere cambiar el precio:");
-	gets(cod);
-	
-	for (i = 0; i < dim-1 && flag == 1; i++) {
-		if (strcmp(p[i].codigo, cod) == 0) {
-			j = 1;
-			flag = 0;
-		}
-	}
-	
-	if (j == 1) {
-		printf("Introduzca la cantidad que desea aumentar o disminuir el precio: \n");
-		printf("(Para rebajar el precio ponga signo negativo)\n");
-		
-		scanf("%f", &incre);
-		
-		p[i].precio += incre;
-		
-		printf("Precio modificado: \n");
-		printf("%s %i"; p[i].codigo, p[i].precio)
-		f = fopen("Almacen.txt", "w");
-		for (i = 0; i < dim-1; i++) {
-			fprintf("%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
-		}
-		fclose(f);
-	}
-	
-	else printf("Codigo invalido: \n");
-	
-	printf("Pulse intro para volver al menu principal.\n");
-	while(getchar() != '\n');
-}
 
 
 
