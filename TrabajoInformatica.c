@@ -299,7 +299,10 @@ void pedido(Producto p[], int dim){
 						}	
 					}
 				}
+				printf("Coste de tu pedido: %.2f\n", precio);
 			}
+			else
+				printf("Se nos han agotado las unidades de ese producto\n");
 		}
 		
 		
