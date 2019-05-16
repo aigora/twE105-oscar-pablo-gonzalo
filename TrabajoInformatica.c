@@ -287,6 +287,11 @@ void pedido(Producto p[], int dim){
 }
 
 
+void modificar_precio(Producto [], int ){
+	
+}
+
+
 
 
 
