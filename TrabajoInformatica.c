@@ -289,15 +289,16 @@ void pedido(Producto p[], int dim){
 
 void modificar_precio(Producto p[], int dim){
 	
-	int cod, i, j = 0, incre;
+	int cod, i, j = 0, incre, flag = 1;
 	FILE *f;
 	
 	printf("Codigo del producto al que le quiere cambiar el precio:");
 	gets(cod);
 	
-	for (i = 0; i < dim-1; i++) {
+	for (i = 0; i < dim-1 && flag == 1; i++) {
 		if (strcmp(p[i].codigo, cod) == 0) {
 			j = 1;
+			flag = 0;
 		}
 	}
 	
@@ -310,7 +311,7 @@ void modificar_precio(Producto p[], int dim){
 		p[i].precio += incre;
 		
 		printf("Precio modificado: \n");
-		
+		printf("%i %i"; p[i].codigo, p[i].precio)
 		f = fopen("Almacen.txt", "w");
 		for (i = 0; i < dim-1; i++) {
 			fprintf("%d %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
