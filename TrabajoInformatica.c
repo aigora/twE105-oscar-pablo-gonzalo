@@ -229,11 +229,11 @@ void pedido(Producto p[], int dim){
 	}
 	
 	for(j=0; j<30; j++){
-		lista[2] = 0;
+		lista2[j] = 0;
 	}
 	
 	printf("Lista de productos del stock:\n");
-	for(i = 0; i < a-1; i++){
+	for(i = 0; i < dim-1; i++){
 		printf("%d %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
@@ -260,7 +260,7 @@ void pedido(Producto p[], int dim){
 		while(getchar() != '\n');
 		
 		for(i=0; i<dim-1 && flag ==1 ; i++){
-			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase) && strcmp(top, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
+			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase) && strcmp(tip, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
 				x = 5;
 				flag = 0;
 			}
@@ -289,12 +289,14 @@ void pedido(Producto p[], int dim){
 
 void modificar_precio(Producto p[], int dim){
 	
-	int cod;
+	int cod, i;
 	
 	printf("Codigo del producto al que le quiere cambiar el precio:");
 	gets(cod);
 	
-	
+	for (i = 0; i < dim-1; i++) {
+		
+	}
 	
 }
 
