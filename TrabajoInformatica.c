@@ -212,7 +212,7 @@ void nuevo_producto(Producto p[], int dim){
 	gets(p[dim-1].marca);
 	cont=dim;
 	
-	for(i=0;i<dim-1;i++){
+	for(i=0;i<dim-1 && flag==1;i++){
 		if(strcmp(p[i].codigo,p[dim-1].codigo)==0 && strcmp(p[i].marca,p[dim-1].marca)==0){
 			cont=0;
 			flag = 0;
