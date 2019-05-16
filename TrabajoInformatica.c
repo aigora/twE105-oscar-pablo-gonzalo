@@ -289,13 +289,15 @@ void pedido(Producto p[], int dim){
 
 void modificar_precio(Producto p[], int dim){
 	
-	int cod, i;
+	int cod, i, j = 0;
 	
 	printf("Codigo del producto al que le quiere cambiar el precio:");
 	gets(cod);
 	
 	for (i = 0; i < dim-1; i++) {
-		
+		if (strcmp(p[i].codigo, cod) == 0) {
+			j = 1;
+		}
 	}
 	
 }
