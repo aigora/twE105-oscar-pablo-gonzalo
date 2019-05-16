@@ -234,13 +234,13 @@ void nuevo_producto(Producto p[], int dim){
 		if(h==NULL){
 			printf("Error al abrir el archivo");
 		}
-		fprintf(h,"&i\n",dim)
-		for(i=0;i<dime-1;i++){
-			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].canidad,p[i].precio);
+		fprintf(h,"&i\n",dim);
+		for(i=0;i<dim-1;i++){
+			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
 		}
 		fclose(h);
 		printf("Se ha añadido exitosamente:\n");
-		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].canidad,p[dim-2].precio);
+		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
 	}
 	else{
 		printf("\nProducto ya existente\n");
