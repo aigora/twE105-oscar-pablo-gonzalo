@@ -320,6 +320,8 @@ void modificar_precio(Producto p[], int dim){
 	
 	else printf("Codigo invalido: \n");
 	
+	printf("Pulse intro para volver al menu principal.\n");
+	while(getchar() != '\n');
 }
 
 
