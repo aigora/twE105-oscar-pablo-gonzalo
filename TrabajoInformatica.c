@@ -300,6 +300,17 @@ void modificar_precio(Producto p[], int dim){
 		}
 	}
 	
+	if (j == 1) {
+		printf("Introduzca la cantidad que desea aumentar o disminuir el precio: \n");
+		printf("(Para rebajar el precio ponga signo negativo)\n");
+		
+		scanf("%f", &incre);
+		
+		p[i].precio += incre;
+		
+		printf("Precio modificado: \n");
+		
+	}
 }
 
 
