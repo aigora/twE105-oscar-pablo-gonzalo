@@ -219,9 +219,10 @@ void nuevo_producto(Producto p[], int dim){
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x;
+	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x, cont=0;
 	char cod[5], gen[10], clas[15], tip[10], marc[10];
-	float prec;
+	float prec=0;
+	FILE *f;
 	
 	for(j=0; j<30; j++){
 		lista1[j] = 0;
@@ -262,6 +263,16 @@ void pedido(Producto p[], int dim){
 			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase) && strcmp(top, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
 				x = 5;
 				flag = 0;
+			}
+		}
+		
+		if(x==5){
+			if(cant <= p[i].cantidad){
+				printf("Tu pedido se ha realizado correctamente\n");
+				cont++;
+				p[i].cantidad -= cant;
+				prec += cant*p[i].precio;
+				
 			}
 		}
 		
