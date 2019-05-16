@@ -16,7 +16,7 @@ typedef struct {
 
 int menu(void);
 void stock(Producto [], int );
-void nuevo_prod(Producto [], int );
+void nuevo_producto(Producto [], int );
 void suministrar(Producto [], int );
 void buscar_producto(Producto [], int );
 void modificar_precio(Producto [], int );
@@ -38,7 +38,7 @@ int main()
 	}
 		
 	
-	while(flag{
+	while(flag){
 		fscanf(g, "%d", &cant);
 		fflush(stdin);
 		
@@ -57,7 +57,7 @@ int main()
 				stock(p, cant);
 				break;
 			case 2:
-				nuevo_prod(p, cant);
+				nuevo_producto(p, cant);
 				break;
 			case 3:
 				suministrar(p, cant);
@@ -148,7 +148,7 @@ void suministrar(Producto p[], int dim) {
 		
 		if(f == NULL) {
 			printf("Error al abrir el archivo.\n");
-			return -2;
+			//return -2;
 		}
 		
 		fprintf(f, "%i", dim);
