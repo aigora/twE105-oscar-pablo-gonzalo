@@ -289,7 +289,8 @@ void pedido(Producto p[], int dim){
 
 void modificar_precio(Producto p[], int dim){
 	
-	int cod, i, j = 0;
+	int cod, i, j = 0, incre;
+	FILE *f;
 	
 	printf("Codigo del producto al que le quiere cambiar el precio:");
 	gets(cod);
@@ -316,6 +317,9 @@ void modificar_precio(Producto p[], int dim){
 		}
 		fclose(f);
 	}
+	
+	else printf("Codigo invalido: \n");
+	
 }
 
 
