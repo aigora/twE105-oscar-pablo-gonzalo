@@ -272,6 +272,8 @@ void pedido(Producto p[], int dim){
 				cont++;
 				p[i].cantidad -= cant;
 				prec += cant*p[i].precio;
+				lista1[cont] = i+1;
+				lista2[cont] = cant;
 				
 			}
 		}
