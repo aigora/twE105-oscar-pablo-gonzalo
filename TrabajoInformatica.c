@@ -5,7 +5,7 @@
 #include <string.h>
 
 typedef struct {
-	char codigo[5];
+	int codigo[5];
 	char genero [10];
 	char clase [15];
 	char tipo[10];
@@ -45,7 +45,7 @@ int main()
 		
 		
 		for(i=0; i<cant-1; i++){
-			fscanf(g, "%s %s %s %s %s %d %f", 
+			fscanf(g, "%d %s %s %s %s %d %f", 
 				p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, &p[i].cantidad, &p[i].precio);
 			fflush(stdin);
 		}
@@ -109,7 +109,7 @@ void stock(Producto p[], int a){
 	int i;
 	
 	for(i = 0; i < a-1; i++){
-		printf("%s %s %s %s %s %i %f\n", 
+		printf("%d %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 	
@@ -120,13 +120,13 @@ void stock(Producto p[], int a){
 void suministrar(Producto p[], int dim) {
 	
 	int i, j = 0, cant;
-	char cod[5];
+	int cod[5];
 	
 	FILE *f;
 	
 	printf("Productos en stock: \n");
 	for(i = 0; i < dim-1; i++) {
-		printf("%s %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		printf("%d %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 	}
 	
 	printf("Introduzca el codigo del producto a suministrar: \n");
@@ -144,7 +144,7 @@ void suministrar(Producto p[], int dim) {
 		
 		p[i].cantidad += cant;
 		printf("Suministro realizado.\n");
-		printf("%s %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		printf("%d %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 		
 		f = fopen("Almacen.txt", "w");
 		
@@ -156,7 +156,7 @@ void suministrar(Producto p[], int dim) {
 		fprintf(f, "%i", dim);
 		
 		for (i = 0; i < dim-1; i++) {
-			fprintf(f, "%s %s %s %s %s %i &f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f, "%d %s %s %s %s %i &f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
@@ -167,7 +167,7 @@ void suministrar(Producto p[], int dim) {
 void buscar_producto(Producto p[], int dim){
 
 	int i,j, flag = 1;
-	char busqueda[5];
+	int busqueda[5];
 	
 	printf("\nIntroduzca el codigo: ");
 	gets(busqueda); 
@@ -180,7 +180,7 @@ void buscar_producto(Producto p[], int dim){
 		}
 	}
 	if(j==5){
-		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("\n%d %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		printf("Pulsa intro para volver al menu\n");
 		while(getchar() != '\n');
 	}
@@ -219,8 +219,8 @@ void nuevo_producto(Producto p[], int dim){
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x, cont=0;
-	char cod[5], gen[10], clas[15], tip[10], marc[10];
+	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x, cont=0,cod[5];
+	char gen[10], clas[15], tip[10], marc[10];
 	float prec=0;
 	FILE *f;
 	
@@ -234,7 +234,7 @@ void pedido(Producto p[], int dim){
 	
 	printf("Lista de productos del stock:\n");
 	for(i = 0; i < a-1; i++){
-		printf("%s %s %s %s %s %i %f\n", 
+		printf("%d %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 	
@@ -287,7 +287,14 @@ void pedido(Producto p[], int dim){
 }
 
 
-void modificar_precio(Producto [], int ){
+void modificar_precio(Producto p[], int dim){
+	
+	int cod;
+	
+	printf("Codigo del producto al que le quiere cambiar el precio:");
+	gets(cod);
+	
+	
 	
 }
 
