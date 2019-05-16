@@ -117,6 +117,28 @@ void stock(Producto p[], int a){
 	while(getchar() != '\n');
 }
 
+void nuevo_producto(Producto p[], int dim){
+	
+	int i, cont;
+	printf("Datos del nuevo producto: ");
+	printf("Codigo: ");
+	gets(p[dim-1].codigo);
+	printf("Genero: ");
+	gets(p[dim-1].genero);
+	printf("Clase: ");
+	gets(p[dim-1].clase);
+	printf("Tipo: ");
+	gets(p[dim-1].tipo);
+	printf("Marca: ");
+	gets(p[dim-1].marca);
+	cont=dim;
+	
+	for(i=0;i<dim-1;i++){
+		
+	}
+	
+}
+
 void suministrar(Producto p[], int dim) {
 	
 	int i, j = 0, cant;
@@ -195,28 +217,6 @@ void buscar_producto(Producto p[], int dim){
 	
 }
 
-
-void nuevo_producto(Producto p[], int dim){
-	
-	int i, cont;
-	printf("Datos del nuevo producto: ");
-	printf("Codigo: ");
-	gets(p[dim-1].codigo);
-	printf("Genero: ");
-	gets(p[dim-1].genero);
-	printf("Clase: ");
-	gets(p[dim-1].clase);
-	printf("Tipo: ");
-	gets(p[dim-1].tipo);
-	printf("Marca: ");
-	gets(p[dim-1].marca);
-	cont=dim;
-	
-	for(i=0;i<dim-1;i++){
-		
-	}
-	
-}
 void modificar_precio(Producto p[], int dim){
 	
 	int i, j = 0, incre, flag = 1;
@@ -352,6 +352,7 @@ void pedido(Producto p[], int dim){
 	printf("Pulse intro para volver al menu\n");
 	while(getchar() != '\n');
 }
+
 
 
 
