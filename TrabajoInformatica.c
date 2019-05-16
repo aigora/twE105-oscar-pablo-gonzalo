@@ -112,6 +112,8 @@ void stock(Producto p[], int a){
 		printf("%s %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
+	
+	printf("Pulse intro para volver al menu\n");
 	while(getchar() != '\n');
 }
 
@@ -177,11 +179,18 @@ void buscar_producto(Producto p[], int dim){
 			flag = 0;
 		}
 	}
-	if(j==5)
+	if(j==5){
 		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("Pulsa intro para volver al menu\n");
+		while(getchar() != '\n');
+	}
 	
-	else
+	else{
 		printf("\nEl codigo introducido no existe. \n");
+		while(getchar() != '\n');
+	}
+	
+	
 	
 }
 
