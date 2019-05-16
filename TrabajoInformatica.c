@@ -310,6 +310,11 @@ void modificar_precio(Producto p[], int dim){
 		
 		printf("Precio modificado: \n");
 		
+		f = fopen("Almacen.txt", "w");
+		for (i = 0; i < dim-1; i++) {
+			fprintf("%d %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		}
+		fclose(f);
 	}
 }
 
