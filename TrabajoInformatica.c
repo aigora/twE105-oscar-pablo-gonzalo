@@ -187,6 +187,7 @@ void buscar_producto(Producto p[], int dim){
 	
 	else{
 		printf("\nEl codigo introducido no existe. \n");
+		printf("Pulse intro para volver al menu\n");
 		while(getchar() != '\n');
 	}
 	
@@ -218,11 +219,28 @@ void nuevo_producto(Producto p[], int dim){
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant=0, flag1;
+	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x;
 	char cod[5], gen[10], clas[15], tip[10], marc[10];
 	float prec;
 	
+	for(j=0; j<30; j++){
+		lista1[j] = 0;
+	}
+	
+	for(j=0; j<30; j++){
+		lista[2] = 0;
+	}
+	
+	printf("Lista de productos del stock:\n");
+	for(i = 0; i < a-1; i++){
+		printf("%s %s %s %s %s %i %f\n", 
+			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+	}
+	
+	
 	do{
+		
+		x=0;
 		printf("Introduzca los datos del pedido\n");
 		
 		printf("Codigo:\n");
@@ -240,9 +258,13 @@ void pedido(Producto p[], int dim){
 		fflush(stdin);
 		while(getchar() != '\n');
 		
-		for(i=0; i<dim-1; i++){
-			if(strcmp(pcod, p[i].codigo)==0 && )
+		for(i=0; i<dim-1 && flag ==1 ; i++){
+			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase) && strcmp(top, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
+				x = 5;
+				flag = 0;
+			}
 		}
+		
 		
 		
 		printf("Introduzca 1 si quiere seguir añadiendo algun producto mas o cualquier letra para salir, gracias.\n");
