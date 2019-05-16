@@ -107,12 +107,12 @@ int menu(void) {
 
 void stock(Producto p[], int a){
 	int i;
-	char vuelta;
 	
 	for(i = 0; i < a-1; i++){
 		printf("%s %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
+	while(getchar() != '\n');
 }
 
 void suministrar(Producto p[], int dim) {
@@ -209,7 +209,7 @@ void nuevo_producto(Producto p[], int dim){
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant, flag1;
+	int i, cant=0, flag1;
 	char cod[5], gen[10], clas[15], tip[10], marc[10];
 	float prec;
 	
@@ -230,6 +230,10 @@ void pedido(Producto p[], int dim){
 		scanf("%d", &cant);
 		fflush(stdin);
 		while(getchar() != '\n');
+		
+		for(i=0; i<dim-1; i++){
+			if(strcmp(pcod, p[i].codigo)==0 && )
+		}
 		
 		
 		printf("Introduzca 1 si quiere seguir añadiendo algun producto mas o cualquier letra para salir, gracias.\n");
