@@ -275,6 +275,19 @@ void pedido(Producto p[], int dim){
 				lista1[cont] = i+1;
 				lista2[cont] = cant;
 				
+				f = fopen("Almacen.txt", "w");
+				
+				if(f == NULL)
+					printf("Error al abrir el archivo");
+				
+				fprintf(f, "%d\n", dim);
+				
+				for(i=0; i<dim-1; i++){
+					fprintf("%s %s %s %s %s %i %f\n", 
+						p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+				}
+				
+				fclose(f);
 			}
 		}
 		
