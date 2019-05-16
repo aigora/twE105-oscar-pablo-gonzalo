@@ -197,8 +197,9 @@ void buscar_producto(Producto p[], int dim){
 
 
 void nuevo_producto(Producto p[], int dim){
-	
+	FILE *h;
 	int i, cont;
+	
 	printf("Datos del nuevo producto: ");
 	printf("Codigo: ");
 	gets(p[dim-1].codigo);
@@ -213,8 +214,39 @@ void nuevo_producto(Producto p[], int dim){
 	cont=dim;
 	
 	for(i=0;i<dim-1;i++){
-		
+		if(strcmp(p[i].codigo,p[dim-1].codigo)==0 && strcmp(p[i].marca,p[dim-1].marca)==0){
+			cont=0;
+			break;
+		}
 	}
+	if(cont==dim){
+		printf("Se ha añadido un nuevo producto\n");
+		printf("Cantidad: ");
+		scanf("%i",&p[dim-1].cantidad);
+		while(getchar()!='\n');
+		
+		printf("Precio: ");
+		scanf("%f",&p[dim-1].precio);
+		while(getchar()!='\n');
+		
+		dim++;
+		h=fopen("almacen.txt","w");
+		
+		if(h==NULL){
+			printf("Error al abrir el archivo");
+		}
+		fprintf(h,"&i\n",dim);
+		for(i=0;i<dim-1;i++){
+			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
+		}
+		fclose(h);
+		printf("Se ha añadido exitosamente:\n");
+		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
+	}
+	else{
+		printf("\nProducto ya existente\n");
+	}
+	sleep(3);
 	
 }
 
