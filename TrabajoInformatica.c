@@ -117,28 +117,6 @@ void stock(Producto p[], int a){
 	while(getchar() != '\n');
 }
 
-void nuevo_producto(Producto p[], int dim){
-	
-	int i, cont;
-	printf("Datos del nuevo producto: ");
-	printf("Codigo: ");
-	gets(p[dim-1].codigo);
-	printf("Genero: ");
-	gets(p[dim-1].genero);
-	printf("Clase: ");
-	gets(p[dim-1].clase);
-	printf("Tipo: ");
-	gets(p[dim-1].tipo);
-	printf("Marca: ");
-	gets(p[dim-1].marca);
-	cont=dim;
-	
-	for(i=0;i<dim-1;i++){
-		
-	}
-	
-}
-
 void suministrar(Producto p[], int dim) {
 	
 	int i, j = 0, cant;
@@ -209,7 +187,6 @@ void buscar_producto(Producto p[], int dim){
 	
 	else{
 		printf("\nEl codigo introducido no existe. \n");
-		printf("Pulse intro para volver al menu\n");
 		while(getchar() != '\n');
 	}
 	
@@ -217,68 +194,67 @@ void buscar_producto(Producto p[], int dim){
 	
 }
 
-void modificar_precio(Producto p[], int dim){
+
+void nuevo_producto(Producto p[], int dim){
+	FILE *h;
+	int i, cont, flag = 1;
 	
-	int i, j = 0, incre, flag = 1;
-	FILE *f;
-	char cod[5];
-	printf("Codigo del producto al que le quiere cambiar el precio:");
-	gets(cod);
+	printf("Datos del nuevo producto: ");
+	printf("Codigo: ");
+	gets(p[dim-1].codigo);
+	printf("Genero: ");
+	gets(p[dim-1].genero);
+	printf("Clase: ");
+	gets(p[dim-1].clase);
+	printf("Tipo: ");
+	gets(p[dim-1].tipo);
+	printf("Marca: ");
+	gets(p[dim-1].marca);
+	cont=dim;
 	
-	for (i = 0; i < dim-1 && flag == 1; i++) {
-		if (strcmp(p[i].codigo, cod) == 0) {
-			j = 1;
+	for(i=0;i<dim-1;i++){
+		if(strcmp(p[i].codigo,p[dim-1].codigo)==0 && strcmp(p[i].marca,p[dim-1].marca)==0){
+			cont=0;
 			flag = 0;
 		}
 	}
-	
-	if (j == 1) {
-		printf("Introduzca la cantidad que desea aumentar o disminuir el precio: \n");
-		printf("(Para rebajar el precio ponga signo negativo)\n");
+	if(cont==dim){
+		printf("Se ha añadido un nuevo producto\n");
+		printf("Cantidad: ");
+		scanf("%i",&p[dim-1].cantidad);
+		while(getchar()!='\n');
 		
-		scanf("%f", &incre);
+		printf("Precio: ");
+		scanf("%f",&p[dim-1].precio);
+		while(getchar()!='\n');
 		
-		p[i].precio += incre;
+		dim++;
+		h=fopen("almacen.txt","w");
 		
-		printf("Precio modificado: \n");
-		printf("%s %i"; p[i].codigo, p[i].precio)
-		f = fopen("Almacen.txt", "w");
-		for (i = 0; i < dim-1; i++) {
-			fprintf("%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		if(h==NULL){
+			printf("Error al abrir el archivo");
 		}
-		fclose(f);
+		fprintf(h,"&i\n",dim);
+		for(i=0;i<dim-1;i++){
+			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
+		}
+		fclose(h);
+		printf("Se ha añadido exitosamente:\n");
+		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
 	}
+	else{
+		printf("\nProducto ya existente\n");
+	}
+	sleep(3);
 	
-	else printf("Codigo invalido: \n");
-	
-	printf("Pulse intro para volver al menu principal.\n");
-	while(getchar() != '\n');
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x, cont=0;
+	int i, cant=0, flag1;
 	char cod[5], gen[10], clas[15], tip[10], marc[10];
-	float prec=0;
-	FILE *f;
-	
-	for(j=0; j<30; j++){
-		lista1[j] = 0;
-	}
-	
-	for(j=0; j<30; j++){
-		lista2[j] = 0;
-	}
-	
-	printf("Lista de productos del stock:\n");
-	for(i = 0; i < dim-1; i++){
-		printf("%s %s %s %s %s %i %f\n", 
-			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
-	}
-	
+	float prec;
 	
 	do{
-		
-		x=0;
 		printf("Introduzca los datos del pedido\n");
 		
 		printf("Codigo:\n");
@@ -296,65 +272,16 @@ void pedido(Producto p[], int dim){
 		fflush(stdin);
 		while(getchar() != '\n');
 		
-		for(i=0; i<dim-1 && flag ==1 ; i++){
-			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase) && strcmp(tip, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
-				x = 5;
-				flag = 0;
-			}
+		for(i=0; i<dim-1; i++){
+			if(strcmp(pcod, p[i].codigo)==0 && )
 		}
 		
-		if(x==5){
-			if(cant <= p[i].cantidad){
-				printf("Tu pedido se ha realizado correctamente\n");
-				cont++;
-				p[i].cantidad -= cant;
-				prec += cant*p[i].precio;
-				lista1[cont] = i+1;
-				lista2[cont] = cant;
-				
-				f = fopen("Almacen.txt", "w");
-				
-				if(f == NULL)
-					printf("Error al abrir el archivo");
-				
-				fprintf(f, "%d\n", dim);
-				
-				for(i=0; i<dim-1; i++){
-					fprintf("%s %s %s %s %s %i %f\n", 
-						p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
-				}
-				
-				fclose(f);
-				
-				printf("Pedido actual:\n");
-				
-				for(j=0; j<30; j++){
-					if(lista1[j] != 0){
-						if(lista2[j] 1= 0){
-							printf("%s %s %s %s %s %.2f x %d\n", 
-								p[lista1[x]-1].codigo, p[lista1[x]-1].genero, p[lista1[x]-1].clase, p[lista1[x]-1].tipo, p[lista1[x]-1].marca, p[lista1[x]-1].precio, lista2[x]);
-						}	
-					}
-				}
-				printf("Coste de tu pedido: %.2f\n", precio);
-			}
-			else
-				printf("Se nos han agotado las unidades de ese producto\n");
-		}
-		else
-			printf("El producto seleccionado no esta en nuestro stock\n");
 		
 		printf("Introduzca 1 si quiere seguir añadiendo algun producto mas o cualquier letra para salir, gracias.\n");
 		scanf("%d", &flag1);
 		while(getchar() != '\n');
 	}while(flag1 == 1);	
-	
-	printf("Pulse intro para volver al menu\n");
-	while(getchar() != '\n');
 }
-
-
-
 
 
 
