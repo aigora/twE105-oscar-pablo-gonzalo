@@ -19,7 +19,7 @@ void stock(Producto [], int );
 void nuevo_producto(Producto [], int );
 void suministrar(Producto [], int );
 void buscar_producto(Producto [], int );
-//void modificar_precio(Producto [], int );
+void modificar_precio(Producto [], int );
 void pedido(Producto [], int );
 //void devolucion(Producto [], int );
 
@@ -27,22 +27,21 @@ void pedido(Producto [], int );
 int main() 
 {
 	int opcion, cant, i, flag = 1;
-	Producto p[cant];
-	FILE *g;
-		
-	g = fopen("Almacen.txt", "r");
-		
-	if(g == NULL){
-		printf("Error al abrir el archivo\n");
-		return -1;
-	}
 		
 	
 	while(flag){
+		FILE *g;
+			
+		g = fopen("Almacen.txt", "r");
+			
+		if(g == NULL){
+			printf("Error al abrir el archivo\n");
+			return -1;
+		}
+		
 		fscanf(g, "%d", &cant);
 		fflush(stdin);
-		
-		
+		Producto p[cant];	
 		
 		for(i=0; i<cant-1; i++){
 			fscanf(g, "%s %s %s %s %s %d %f", 
@@ -65,9 +64,9 @@ int main()
 			case 4:
 				buscar_producto(p, cant);
 				break;
-		/*	case 5:
+			case 5:
 				modificar_precio(p, cant);
-				break;*/
+				break;
 			case 6:
 				 pedido(p, cant);
 				break;
@@ -77,9 +76,7 @@ int main()
 			case 0:
 				flag = 0;
 		}
-	}
-	fclose(g);
-	
+	}	
 }
 
 int menu(void) {
