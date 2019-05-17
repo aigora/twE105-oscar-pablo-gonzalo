@@ -19,7 +19,7 @@ void stock(Producto [], int );
 void nuevo_producto(Producto [], int );
 void suministrar(Producto [], int );
 void buscar_producto(Producto [], int );
-void modificar_precio(Producto [], int );
+//void modificar_precio(Producto [], int );
 void pedido(Producto [], int );
 //void devolucion(Producto [], int );
 
@@ -65,13 +65,13 @@ int main()
 			case 4:
 				buscar_producto(p, cant);
 				break;
-			case 5:
+		/*	case 5:
 				modificar_precio(p, cant);
-				break;
+				break;*/
 			case 6:
 				 pedido(p, cant);
 				break;
-			/*case 7:
+		/*	case 7:
 				 devolucion(p, cant);
 				break;*/
 			case 0:
@@ -245,8 +245,8 @@ void nuevo_producto(Producto p[], int dim){
 	else{
 		printf("\nProducto ya existente\n");
 	}
-	sleep(3);
-	
+	printf("Pulsa intro para volver al menu\n");
+	while(getchar() != '\n');	
 }
 
 
@@ -331,8 +331,8 @@ void pedido(Producto p[], int dim){
 				x = 5;
 				flag = 0;
 			}
-		
-				if(x==5){
+		}
+			if(x==5){
 			if(cant <= p[i].cantidad){
 				printf("Tu pedido se ha realizado correctamente\n");
 				cont++;
@@ -349,7 +349,7 @@ void pedido(Producto p[], int dim){
 				fprintf(f, "%d\n", dim);
 				
 				for(i=0; i<dim-1; i++){
-					fprintf("%s %s %s %s %s %i %f\n", 
+					fprintf(f, "%s %s %s %s %s %i %f\n", 
 						p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 				}
 				
@@ -359,13 +359,17 @@ void pedido(Producto p[], int dim){
 				
 				for(j=0; j<30; j++){
 					if(lista1[j] != 0){
+<<<<<<< HEAD
 						if(lista2[j] = 0){
+=======
+						if(lista2[j] != 0){
+>>>>>>> 1d3523f0c04485aac4758df904ae42a27d1110a9
 							printf("%s %s %s %s %s %.2f x %d\n", 
 								p[lista1[x]-1].codigo, p[lista1[x]-1].genero, p[lista1[x]-1].clase, p[lista1[x]-1].tipo, p[lista1[x]-1].marca, p[lista1[x]-1].precio, lista2[x]);
 						}	
 					}
 				}
-				printf("Coste de tu pedido: %.2f\n", precio);
+				printf("Coste de tu pedido: %.2f\n", prec);
 			}
 			else
 				printf("Se nos han agotado las unidades de ese producto\n");
