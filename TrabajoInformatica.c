@@ -412,7 +412,22 @@ void devolucion(Producto p[],int dim){
 		
 		printf("Se han devuelto &i producto(s) al stock\n",addDev);
 		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		f=fopen("almacen.txt", "w");
+		
+		if(f==NULL){
+			printf("Error al abrir el archivo");
+		}
+		fprintf(f,"%i\n",dim);
+		for(i=0;i<dim-1;i++){
+			fprintf(f,"%s %s %s %s %s%i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		}
+		fclse(f);
 	}
+	else
+	printf("\nCodigo incluido");
+	printf("Pulsa intro para volver al menu\n");
+	while(getchar() != '\n');	
+	
 }
 
 
