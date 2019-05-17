@@ -21,7 +21,7 @@ void suministrar(Producto [], int );
 void buscar_producto(Producto [], int );
 void modificar_precio(Producto [], int );
 void pedido(Producto [], int );
-//void devolucion(Producto [], int );
+void devolucion(Producto [], int );
 
 
 int main() 
@@ -70,9 +70,9 @@ int main()
 			case 6:
 				 pedido(p, cant);
 				break;
-		/*	case 7:
+			case 7:
 				 devolucion(p, cant);
-				break;*/
+				break;
 			case 0:
 				flag = 0;
 		}
@@ -380,6 +380,15 @@ void pedido(Producto p[], int dim){
 }
 
 
+void devolucion(Producto p[],int dim){
+	
+	char scod[5];
+	int i, v, addDev, fechaCC[3],fechaAA[3], flag = 1;
+	char n;
+	FILE *f;
+	
+	
+}
 
 
 
