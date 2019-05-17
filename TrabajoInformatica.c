@@ -274,7 +274,7 @@ void modificar_precio(Producto p[], int dim){
 		printf("%s %i", p[i].codigo, p[i].precio);
 		f = fopen("Almacen.txt", "w");
 		for (i = 0; i < dim-1; i++) {
-			fprintf("%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f, "%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
@@ -396,7 +396,7 @@ void devolucion(Producto p[],int dim){
 	gets(scod);
 	
 	v=0;
-	for(i=0;i<dim-1 && flag=1;i++){
+	for(i=0;i<dim-1 && flag==1;i++){
 		if(strcmp(p[i].codigo,scod)==0){
 			v=5;
 			flag=0;
@@ -421,7 +421,7 @@ void devolucion(Producto p[],int dim){
 		for(i=0;i<dim-1;i++){
 			fprintf(f,"%s %s %s %s %s%i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
-		fclse(f);
+		fclose(f);
 	}
 	else
 	printf("\nCodigo incluido");
