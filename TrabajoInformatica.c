@@ -403,7 +403,16 @@ void devolucion(Producto p[],int dim){
 		}
 	}
 	
-	
+	if(v==0){
+		printf("Introduzca la cantidad a devolver de producto codigo %s: ",scod);
+		scanf("%i", &addDev);
+		while(getchar()!='\n');
+		
+		p[i].cantidad=p[i].cantidad+addDev;
+		
+		printf("Se han devuelto &i producto(s) al stock\n",addDev);
+		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+	}
 }
 
 
