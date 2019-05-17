@@ -396,13 +396,12 @@ void devolucion(Producto p[],int dim){
 	gets(scod);
 	
 	v=0;
-	for(i=0;i<dim-1;i++){
+	for(i=0;i<dim-1 && flag = 1;i++){
 		if(strcmp(p[i].codigo,scod)==0){
 			v=5;
-			break;
+			flag=0;
 		}
 	}
-	
 	
 	
 }
