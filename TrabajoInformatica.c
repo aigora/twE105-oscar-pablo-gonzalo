@@ -225,7 +225,7 @@ void nuevo_producto(Producto p[], int dim){
 		while(getchar()!='\n');
 		
 		dim++;
-		h=fopen("almacen.txt","w");
+		h=fopen("Almacen.txt","w");
 		
 		if(h==NULL)
 			printf("Error al abrir el archivo");
@@ -412,7 +412,7 @@ void devolucion(Producto p[],int dim){
 		
 		printf("Se han devuelto &i producto(s) al stock\n",addDev);
 		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
-		f=fopen("almacen.txt", "w");
+		f=fopen("Almacen.txt", "w");
 		
 		if(f==NULL)
 			printf("Error al abrir el archivo");
