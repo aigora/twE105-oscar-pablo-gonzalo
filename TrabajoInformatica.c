@@ -76,7 +76,8 @@ int main()
 			case 0:
 				flag = 0;
 		}
-	}	
+	}
+	return 0;	
 }
 
 int menu(void) {
