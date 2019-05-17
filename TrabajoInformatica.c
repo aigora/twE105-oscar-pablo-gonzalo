@@ -359,11 +359,11 @@ void pedido(Producto p[], int dim){
 				
 				for(j=0; j<30; j++){
 					if(lista1[j] != 0){
-<<<<<<< HEAD
+
 						if(lista2[j] = 0){
-=======
+
 						if(lista2[j] != 0){
->>>>>>> 1d3523f0c04485aac4758df904ae42a27d1110a9
+
 							printf("%s %s %s %s %s %.2f x %d\n", 
 								p[lista1[x]-1].codigo, p[lista1[x]-1].genero, p[lista1[x]-1].clase, p[lista1[x]-1].tipo, p[lista1[x]-1].marca, p[lista1[x]-1].precio, lista2[x]);
 						}	
