@@ -159,7 +159,10 @@ void suministrar(Producto p[], int dim) {
 		fclose(f);
 	}
 	else 
-	printf("Codigo invalido.");
+		printf("Codigo invalido.");
+	
+	printf("Pulse intro para volver al menu\n");
+	while(getchar() != '\n');
 }
 
 void buscar_producto(Producto p[], int dim){
@@ -177,19 +180,14 @@ void buscar_producto(Producto p[], int dim){
 			flag = 0;
 		}
 	}
-	if(j==5){
+	if(j==5)
 		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
-		printf("Pulsa intro para volver al menu\n");
-		while(getchar() != '\n');
-	}
-	
-	else{
+			
+	else
 		printf("\nEl codigo introducido no existe. \n");
-		while(getchar() != '\n');
-	}
 	
-	
-	
+	printf("Pulse intro para volver al menu\n");
+	while(getchar() != '\n');
 }
 
 
@@ -229,9 +227,9 @@ void nuevo_producto(Producto p[], int dim){
 		dim++;
 		h=fopen("almacen.txt","w");
 		
-		if(h==NULL){
+		if(h==NULL)
 			printf("Error al abrir el archivo");
-		}
+		
 		fprintf(h,"&i\n",dim);
 		for(i=0;i<dim-1;i++){
 			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
@@ -240,9 +238,9 @@ void nuevo_producto(Producto p[], int dim){
 		printf("Se ha añadido exitosamente:\n");
 		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
 	}
-	else{
+	else
 		printf("\nProducto ya existente\n");
-	}
+	
 	printf("Pulsa intro para volver al menu\n");
 	while(getchar() != '\n');	
 }
@@ -280,7 +278,8 @@ void modificar_precio(Producto p[], int dim){
 		fclose(f);
 	}
 	
-	else printf("Codigo invalido: \n");
+	else 
+		printf("Codigo invalido: \n");
 	
 	printf("Pulse intro para volver al menu principal.\n");
 	while(getchar() != '\n');
@@ -415,9 +414,9 @@ void devolucion(Producto p[],int dim){
 		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		f=fopen("almacen.txt", "w");
 		
-		if(f==NULL){
+		if(f==NULL)
 			printf("Error al abrir el archivo");
-		}
+		
 		fprintf(f,"%i\n",dim);
 		for(i=0;i<dim-1;i++){
 			fprintf(f,"%s %s %s %s %s%i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
@@ -425,10 +424,10 @@ void devolucion(Producto p[],int dim){
 		fclose(f);
 	}
 	else
-	printf("\nCodigo incluido");
+		printf("\nCodigo incluido");
+		
 	printf("Pulsa intro para volver al menu\n");
-	while(getchar() != '\n');	
-	
+	while(getchar() != '\n');		
 }
 
 
