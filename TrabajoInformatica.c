@@ -21,7 +21,7 @@ void suministrar(Producto [], int );
 void buscar_producto(Producto [], int );
 void modificar_precio(Producto [], int );
 void pedido(Producto [], int );
-void devolucion(Producto [], int );
+//void devolucion(Producto [], int );
 
 
 int main() 
@@ -71,9 +71,9 @@ int main()
 			case 6:
 				 pedido(p, cant);
 				break;
-			case 7:
+			/*case 7:
 				 devolucion(p, cant);
-				break;
+				break;*/
 			case 0:
 				flag = 0;
 		}
@@ -273,7 +273,7 @@ void pedido(Producto p[], int dim){
 		while(getchar() != '\n');
 		
 		for(i=0; i<dim-1; i++){
-			if(strcmp(pcod, p[i].codigo)==0 && )
+			if(strcmp(cod, p[i].codigo)==0 && )
 		}
 		
 		
