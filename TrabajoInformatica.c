@@ -150,7 +150,7 @@ void suministrar(Producto p[], int dim) {
 		
 		if(f == NULL) {
 			printf("Error al abrir el archivo.\n");
-			//return -2;
+	
 		}
 		
 		fprintf(f, "%i", dim);
