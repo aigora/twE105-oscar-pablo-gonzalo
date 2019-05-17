@@ -383,7 +383,7 @@ void pedido(Producto p[], int dim){
 void devolucion(Producto p[],int dim){
 	
 	char scod[5];
-	int i, v, addDev, fechaCC[3],fechaAA[3], flag = 1;
+	int i, v, addDev, fechaCC[3],fechaAA[3], flag=1;
 	char n;
 	FILE *f;
 	
@@ -396,7 +396,7 @@ void devolucion(Producto p[],int dim){
 	gets(scod);
 	
 	v=0;
-	for(i=0;i<dim-1 && flag = 1;i++){
+	for(i=0;i<dim-1 && flag=1;i++){
 		if(strcmp(p[i].codigo,scod)==0){
 			v=5;
 			flag=0;
@@ -411,7 +411,7 @@ void devolucion(Producto p[],int dim){
 		p[i].cantidad=p[i].cantidad+addDev;
 		
 		printf("Se han devuelto &i producto(s) al stock\n",addDev);
-		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 }
 
