@@ -417,7 +417,8 @@ void devolucion(Producto p[],int dim){
 		f=fopen("Almacen.txt", "w");
 		
 		if(f==NULL)
-			printf("Error al abrir el archivo");
+			printf("Error al abrir el archivo\n");
+			return -1;
 		
 		fprintf(f,"%i\n",dim);
 		for(i=0;i<dim-1;i++){
