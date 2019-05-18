@@ -322,6 +322,7 @@ void pedido(Producto p[], int dim){
 		scanf("%d", &cant);
 		fflush(stdin);
 		while(getchar() != '\n');
+		x=0;
 		
 		for(i=0; i<dim-1 && flag ==1 ; i++){
 			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase)==0 && strcmp(tip, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
