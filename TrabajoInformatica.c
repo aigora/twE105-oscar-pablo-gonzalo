@@ -324,7 +324,7 @@ void pedido(Producto p[], int dim){
 		while(getchar() != '\n');
 		
 		for(i=0; i<dim-1 && flag ==1 ; i++){
-			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase) && strcmp(tip, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
+			if(strcmp(cod, p[i].codigo)==0 && strcmp(gen, p[i].genero)==0 && strcmp(clas, p[i].clase)==0 && strcmp(tip, p[i].tipo)==0 && strcmp(marc, p[i].marca)==0){
 				x = 5;
 				flag = 0;
 			}
