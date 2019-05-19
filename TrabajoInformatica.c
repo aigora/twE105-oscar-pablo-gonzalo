@@ -371,7 +371,7 @@ void pedido(Producto p[], int dim){
 		else
 			printf("El producto seleccionado no esta en nuestro stock\n");
 			
-		printf("Introduzca 1 si quiere seguir añadiendo algun producto mas o cualquier letra para salir, gracias.\n");
+		printf("Introduzca 1 si quiere seguir añadiendo algun producto mas o cualquier num o letra para salir, gracias.\n");
 		scanf("%d", &flag1);
 		while(getchar() != '\n');
 	}while(flag1 == 1);	
