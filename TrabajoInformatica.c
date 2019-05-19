@@ -9,7 +9,7 @@ typedef struct {
 	char genero [10];
 	char clase [15];
 	char tipo[10];
-	char marca[10];
+	char marca[20];
 	float precio;
 	int cantidad;
 }Producto;
@@ -314,7 +314,7 @@ void pedido(Producto p[], int dim){
 		printf("%s %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
-	
+	i--;
 	do{
 		printf("Introduzca el codigo del producto que quiera hacer\n");
 		gets(cod);
@@ -333,8 +333,8 @@ void pedido(Producto p[], int dim){
 			if(cant <= p[i].cantidad){
 				printf("Tu pedido se ha realizado correctamente\n");
 				cont++;
-				p[i-1].cantidad -= cant;
-				prec += cant*p[i-1].precio;
+				p[i].cantidad -= cant;
+				prec += cant*p[i].precio;
 				lista1[cont] = i+1;
 				lista2[cont] = cant;
 				
@@ -358,7 +358,7 @@ void pedido(Producto p[], int dim){
 					if(lista1[j] != 0){
 						if(lista2[j] != 0){
 							printf("%s %s %s %s %s %f x %d\n", 
-								p[lista1[x]-1].codigo, p[lista1[x]-1].genero, p[lista1[x]-1].clase, p[lista1[x]-1].tipo, p[lista1[x]-1].marca, p[lista1[x]-1].precio, lista2[x]);
+								p[lista1[j]-1].codigo, p[lista1[j]-1].genero, p[lista1[j]-1].clase, p[lista1[j]-1].tipo, p[lista1[j]-1].marca, p[lista1[j]-1].precio, lista2[j]);
 						}	
 					}
 				}
