@@ -229,7 +229,6 @@ void nuevo_producto(Producto p[], int dim){
 		
 		if(h==NULL)
 			printf("Error al abrir el archivo\n");
-			return -1;
 		
 		fprintf(h,"&i\n",dim);
 		for(i=0;i<dim-1;i++){
@@ -418,7 +417,6 @@ void devolucion(Producto p[],int dim){
 		
 		if(f==NULL)
 			printf("Error al abrir el archivo\n");
-			return -1;
 		
 		fprintf(f,"%i\n",dim);
 		for(i=0;i<dim-1;i++){
