@@ -205,7 +205,7 @@ void suministrar(Producto p[], int dim) {
 	
 		}
 		
-		fprintf(f, "%i", dim);
+		fprintf(f, "%i\n", dim);
 		
 		for (i = 0; i < dim-1; i++) {
 			fprintf(f, "%s %s %s %s %s %i &f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
@@ -235,7 +235,7 @@ void buscar_producto(Producto p[], int dim){
 		}
 	}
 	if(j==5)
-		printf("\n%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("\n%s %s %s %s %s %i %f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 			
 	else
 		printf("\nEl codigo introducido no existe. \n");
@@ -246,7 +246,8 @@ void buscar_producto(Producto p[], int dim){
 
 void modificar_precio(Producto p[], int dim){
 	
-	int i, j = 0, incre, flag = 1;
+	int i, j = 0,flag = 1;
+	float  incre;
 	FILE *f;
 	char cod[5];
 	printf("Codigo del producto al que le quiere cambiar el precio:");
@@ -270,6 +271,12 @@ void modificar_precio(Producto p[], int dim){
 		printf("Precio modificado: \n");
 		printf("%s %i", p[i].codigo, p[i].precio);
 		f = fopen("Almacen.txt", "w");
+		
+		if(f == NULL)
+			printf("Error al abrir el archivo\n");
+		
+		fprintf(f, "%d\n", dim);
+		
 		for (i = 0; i < dim-1; i++) {
 			fprintf(f, "%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
@@ -417,6 +424,7 @@ void devolucion(Producto p[],int dim){
 			printf("Error al abrir el archivo\n");
 		
 		fprintf(f,"%i\n",dim);
+		
 		for(i=0;i<dim-1;i++){
 			fprintf(f,"%s %s %s %s %s%i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
