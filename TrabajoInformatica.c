@@ -76,6 +76,7 @@ int main()
 			case 0:
 				flag = 0;
 		}
+		system("cls");
 	}
 	return 0;	
 }
