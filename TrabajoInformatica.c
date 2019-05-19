@@ -222,13 +222,12 @@ void suministrar(Producto p[], int dim) {
 
 void buscar_producto(Producto p[], int dim){
 
-	int i,j, flag = 1;
+	int i,j=0, flag = 1;
 	char busqueda[5];
 	
 	printf("\nIntroduzca el codigo: ");
 	gets(busqueda); 
 	
-	j=0;
 	for(i=0;i<dim-1 && flag == 1;i++){
 		if(strcmp(busqueda,p[i].codigo)==0){
 			j=5;
