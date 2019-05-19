@@ -394,8 +394,8 @@ void devolucion(Producto p[],int dim){
 	char n;
 	FILE *f;
 	
-	printf("Lista de productos en stock: ");
-	for(i=0;dim-1;i++){
+	printf("Lista de productos en stock: \n");
+	for(i=0;i<dim-1;i++){
 		printf("%6s %10s %11s %11s %10s %5i\n",p[i].codigo,p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 	}
 	
