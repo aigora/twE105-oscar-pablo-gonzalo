@@ -123,28 +123,26 @@ void nuevo_producto(Producto p[], int dim){
 	printf("Datos del nuevo producto: ");
 	printf("Codigo: ");
 	gets(p[dim-1].codigo);
-	printf("Genero: ");
-	gets(p[dim-1].genero);
-	printf("Clase: ");
-	gets(p[dim-1].clase);
-	printf("Tipo: ");
-	gets(p[dim-1].tipo);
-	printf("Marca: ");
-	gets(p[dim-1].marca);
 	cont=dim;
 	
 	for(i=0;i<dim-1 && flag==1;i++){
-		if(strcmp(p[i].codigo,p[dim-1].codigo)==0 && strcmp(p[i].marca,p[dim-1].marca)==0){
+		if(strcmp(p[i].codigo,p[dim-1].codigo)==0){
 			cont=0;
 			flag = 0;
 		}
 	}
 	if(cont==dim){
-		printf("Se ha anadido un nuevo producto\n");
+		printf("Genero: ");
+		gets(p[dim-1].genero);
+		printf("Clase: ");
+		gets(p[dim-1].clase);
+		printf("Tipo: ");
+		gets(p[dim-1].tipo);
+		printf("Marca: ");
+		gets(p[dim-1].marca);
 		printf("Cantidad: ");
 		scanf("%i",&p[dim-1].cantidad);
 		while(getchar()!='\n');
-		
 		printf("Precio: ");
 		scanf("%f",&p[dim-1].precio);
 		while(getchar()!='\n');
@@ -164,7 +162,7 @@ void nuevo_producto(Producto p[], int dim){
 		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
 	}
 	else
-		printf("\nProducto ya existente\n");
+		printf("\nProducto con ese codigo ya existente\n");
 	
 	printf("\nPulsa intro para volver al menu\n");
 	while(getchar() != '\n');	
