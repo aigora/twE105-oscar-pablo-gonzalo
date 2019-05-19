@@ -39,7 +39,7 @@ int main()
 			return -1;
 		}
 		
-		fscanf(g, "%d", &cant);
+		fscanf(g, "%i", &cant);
 		fflush(stdin);
 		Producto p[cant];	
 		
@@ -276,7 +276,7 @@ void modificar_precio(Producto p[], int dim){
 		if(f == NULL)
 			printf("Error al abrir el archivo\n");
 		
-		fprintf(f, "%d\n", dim);
+		fprintf(f, "%i\n", dim);
 		
 		for (i = 0; i < dim-1; i++) {
 			fprintf(f, "%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
@@ -350,7 +350,7 @@ void pedido(Producto p[], int dim){
 				if(f == NULL)
 					printf("Error al abrir el archivo");
 				
-				fprintf(f, "%d\n", dim);
+				fprintf(f, "%i\n", dim);
 				
 				for(i=0; i<dim-1; i++){
 					fprintf(f, "%s %s %s %s %s %i %f\n", 
