@@ -111,7 +111,7 @@ void stock(Producto p[], int a){
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 	
-	printf("Pulse intro para volver al menu\n");
+	printf("\nPulse intro para volver al menu\n");
 	while(getchar() != '\n');
 }
 
@@ -161,7 +161,7 @@ void suministrar(Producto p[], int dim) {
 	else 
 		printf("Codigo invalido.");
 	
-	printf("Pulse intro para volver al menu\n");
+	printf("\nPulse intro para volver al menu\n");
 	while(getchar() != '\n');
 }
 
@@ -186,7 +186,7 @@ void buscar_producto(Producto p[], int dim){
 	else
 		printf("\nEl codigo introducido no existe. \n");
 	
-	printf("Pulse intro para volver al menu\n");
+	printf("\nPulse intro para volver al menu\n");
 	while(getchar() != '\n');
 }
 
@@ -235,13 +235,13 @@ void nuevo_producto(Producto p[], int dim){
 			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
 		}
 		fclose(h);
-		printf("Se ha añadido exitosamente:\n");
+		printf("Se ha anadido exitosamente:\n");
 		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
 	}
 	else
 		printf("\nProducto ya existente\n");
 	
-	printf("Pulsa intro para volver al menu\n");
+	printf("\nPulsa intro para volver al menu\n");
 	while(getchar() != '\n');	
 }
 
@@ -281,7 +281,7 @@ void modificar_precio(Producto p[], int dim){
 	else 
 		printf("Codigo invalido: \n");
 	
-	printf("Pulse intro para volver al menu principal.\n");
+	printf("\nPulse intro para volver al menu principal.\n");
 	while(getchar() != '\n');
 }
 
@@ -376,7 +376,7 @@ void pedido(Producto p[], int dim){
 		while(getchar() != '\n');
 	}while(flag1 == 1);	
 	
-	printf("Pulse intro para volver al menu\n");
+	printf("\nPulse intro para volver al menu\n");
 	while(getchar() != '\n');
 }
 
@@ -427,7 +427,7 @@ void devolucion(Producto p[],int dim){
 	else
 		printf("\nCodigo incluido");
 		
-	printf("Pulsa intro para volver al menu\n");
+	printf("\nPulsa intro para volver al menu\n");
 	while(getchar() != '\n');		
 }
 
