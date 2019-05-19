@@ -155,7 +155,7 @@ void nuevo_producto(Producto p[], int dim){
 		if(h==NULL)
 			printf("Error al abrir el archivo\n");
 		
-		fprintf(h,"&i\n",dim);
+		fprintf(h,"%i\n",dim);
 		for(i=0;i<dim-1;i++){
 			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
 		}
