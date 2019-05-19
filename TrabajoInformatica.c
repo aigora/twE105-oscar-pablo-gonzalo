@@ -44,7 +44,7 @@ int main()
 		Producto p[cant];	
 		
 		for(i=0; i<cant-1; i++){
-			fscanf(g, "%s %s %s %s %s %d %f", 
+			fscanf(g, "%s %s %s %s %s %d %.2f", 
 				p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, &p[i].cantidad, &p[i].precio);
 			fflush(stdin);
 		}
@@ -108,7 +108,7 @@ void stock(Producto p[], int a){
 	int i;
 	
 	for(i = 0; i < a-1; i++){
-		printf("%s %s %s %s %s %i %f\n", 
+		printf("%s %s %s %s %s %i %.2f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 	
@@ -155,11 +155,11 @@ void nuevo_producto(Producto p[], int dim){
 		
 		fprintf(h,"%i\n",dim);
 		for(i=0;i<dim-1;i++){
-			fprintf(h,"%s %s %s %s %s %i %f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
+			fprintf(h,"%s %s %s %s %s %i %.2f\n",p[i].codigo,p[i].genero,p[i].clase,p[i].tipo,p[i].marca,p[i].cantidad,p[i].precio);
 		}
 		fclose(h);
 		printf("Se ha anadido exitosamente:\n");
-		printf("%s %s %s %s %s %i %f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
+		printf("%s %s %s %s %s %i %.2f",p[dim-2].codigo,p[dim-2].genero,p[dim-2].clase,p[dim-2].tipo,p[dim-2].marca,p[dim-2].cantidad,p[dim-2].precio);
 	}
 	else
 		printf("\nProducto con ese codigo ya existente\n");
@@ -207,7 +207,7 @@ void suministrar(Producto p[], int dim) {
 		fprintf(f, "%i\n", dim);
 		
 		for (i = 0; i < dim-1; i++) {
-			fprintf(f, "%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f, "%s %s %s %s %s %i %.2f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
@@ -233,7 +233,7 @@ void buscar_producto(Producto p[], int dim){
 		}
 	}
 	if(j==5)
-		printf("\n%s %s %s %s %s %i %f\n",p[i-1].codigo, p[i-1].genero, p[i-1].clase, p[i-1].tipo, p[i-1].marca, p[i-1].cantidad, p[i-1].precio);
+		printf("\n%s %s %s %s %s %i %.2f\n",p[i-1].codigo, p[i-1].genero, p[i-1].clase, p[i-1].tipo, p[i-1].marca, p[i-1].cantidad, p[i-1].precio);
 			
 	else
 		printf("\nEl codigo introducido no existe. \n");
@@ -248,6 +248,12 @@ void modificar_precio(Producto p[], int dim){
 	float  incre;
 	FILE *f;
 	char cod[5];
+	
+	for(i = 0; i < dim-1; i++){
+		printf("%s %s %s %s %s %i %.2f\n", 
+			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+	}
+	
 	printf("Codigo del producto al que le quiere cambiar el precio:");
 	gets(cod);
 	
@@ -263,11 +269,12 @@ void modificar_precio(Producto p[], int dim){
 		printf("(Para rebajar el precio ponga signo negativo)\n");
 		
 		scanf("%f", &incre);
+		while(getchar() != '\n');
 		
-		p[i].precio += incre;
+		p[i-1].precio += incre;
 		
 		printf("Precio modificado: \n");
-		printf("%s %f", p[i].codigo, p[i].precio);
+		printf("%s %f", p[i-1].codigo, p[i-1].precio);
 		f = fopen("Almacen.txt", "w");
 		
 		if(f == NULL)
@@ -276,7 +283,7 @@ void modificar_precio(Producto p[], int dim){
 		fprintf(f, "%i\n", dim);
 		
 		for (i = 0; i < dim-1; i++) {
-			fprintf(f, "%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f, "%s %s %s %s %s %i %.2f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
@@ -304,7 +311,7 @@ void pedido(Producto p[], int dim){
 	
 	printf("Lista de productos del stock:\n");
 	for(i = 0; i < dim-1; i++){
-		printf("%s %s %s %s %s %i %f\n", 
+		printf("%s %s %s %s %s %i %.2f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
 	
@@ -350,7 +357,7 @@ void pedido(Producto p[], int dim){
 				fprintf(f, "%i\n", dim);
 				
 				for(i=0; i<dim-1; i++){
-					fprintf(f, "%s %s %s %s %s %i %f\n", 
+					fprintf(f, "%s %s %s %s %s %i %.2f\n", 
 						p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 				}
 				
@@ -361,7 +368,7 @@ void pedido(Producto p[], int dim){
 				for(j=0; j<30; j++){
 					if(lista1[j] != 0){
 						if(lista2[j] != 0){
-							printf("%s %s %s %s %s %f x %d\n", 
+							printf("%s %s %s %s %s %.2f x %d\n", 
 								p[lista1[x]-1].codigo, p[lista1[x]-1].genero, p[lista1[x]-1].clase, p[lista1[x]-1].tipo, p[lista1[x]-1].marca, p[lista1[x]-1].precio, lista2[x]);
 						}	
 					}
@@ -393,7 +400,7 @@ void devolucion(Producto p[],int dim){
 	
 	printf("Lista de productos en stock: \n");
 	for(i=0;i<dim-1;i++){
-		printf("%6s %10s %11s %11s %10s %5i\n",p[i].codigo,p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		printf("%s %s %s %s %s %i\n",p[i].codigo,p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
 	}
 	
 	printf("\nCodigo del producto desea devolver: ");
@@ -415,7 +422,7 @@ void devolucion(Producto p[],int dim){
 		p[i].cantidad=p[i].cantidad+addDev;
 		
 		printf("Se han devuelto %i producto(s) al stock\n",addDev);
-		printf("%s %s %s %s %s %i %f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("%s %s %s %s %s %i %.2f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		f=fopen("Almacen.txt", "w");
 		
 		if(f==NULL)
@@ -424,7 +431,7 @@ void devolucion(Producto p[],int dim){
 		fprintf(f,"%i\n",dim);
 		
 		for(i=0;i<dim-1;i++){
-			fprintf(f,"%s %s %s %s %s %i %f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f,"%s %s %s %s %s %i %.2f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
