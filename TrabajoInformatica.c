@@ -7,8 +7,8 @@
 typedef struct {
 	char codigo[5];
 	char genero [10];
-	char clase [15];
-	char tipo[10];
+	char clase [20];
+	char tipo[20];
 	char marca[20];
 	float precio;
 	int cantidad;
@@ -142,10 +142,10 @@ void nuevo_producto(Producto p[], int dim){
 		gets(p[dim-1].marca);
 		printf("Cantidad: ");
 		scanf("%i",&p[dim-1].cantidad);
-		while(getchar()!='\n');
+		fflush(stdin);
 		printf("Precio: ");
 		scanf("%f",&p[dim-1].precio);
-		while(getchar()!='\n');
+		fflush(stdin);
 		
 		dim++;
 		h=fopen("Almacen.txt","w");
@@ -314,7 +314,7 @@ void pedido(Producto p[], int dim){
 		printf("%s %s %s %s %s %i %f\n", 
 			p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 	}
-	i--;
+	
 	do{
 		printf("Introduzca el codigo del producto que quiera hacer\n");
 		gets(cod);
@@ -329,6 +329,7 @@ void pedido(Producto p[], int dim){
 				flag = 0;
 			}
 		}
+		i--;
 			if(x==5){
 			if(cant <= p[i].cantidad){
 				printf("Tu pedido se ha realizado correctamente\n");
