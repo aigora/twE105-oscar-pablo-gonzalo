@@ -172,7 +172,7 @@ void nuevo_producto(Producto p[], int dim){
 
 void suministrar(Producto p[], int dim) {
 	
-	int i, j = 0, cant;
+	int i, j = 0, cant, flag=1;
 	char cod[5];
 	
 	FILE *f;
@@ -185,9 +185,10 @@ void suministrar(Producto p[], int dim) {
 	printf("Introduzca el codigo del producto a suministrar: \n");
 	gets(cod);
 	
-	for (i = 0; i < dim-1; i++) {
+	for (i = 0; i < dim-1 && flag == 1; i++) {
 		if(strcmp(p[i].codigo, cod) == 0) {
 			j = 5;
+			flag = 0;
 		}
 	}
 	
@@ -197,7 +198,7 @@ void suministrar(Producto p[], int dim) {
 		
 		p[i].cantidad += cant;
 		printf("Suministro realizado.\n");
-		printf("%s %s %s %s %s %i\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad);
+		printf("%s %s %s %s %s %i\n", p[i-1].codigo, p[i-1].genero, p[i-1].clase, p[i-1].tipo, p[i-1].marca, p[i-1].cantidad);
 		
 		f = fopen("Almacen.txt", "w");
 		
@@ -235,7 +236,7 @@ void buscar_producto(Producto p[], int dim){
 		}
 	}
 	if(j==5)
-		printf("\n%s %s %s %s %s %i %f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("\n%s %s %s %s %s %i %f\n",p[i-1].codigo, p[i-1].genero, p[i-1].clase, p[i-1].tipo, p[i-1].marca, p[i-1].cantidad, p[i-1].precio);
 			
 	else
 		printf("\nEl codigo introducido no existe. \n");
