@@ -383,7 +383,7 @@ void pedido(Producto p[], int dim){
 void devolucion(Producto p[],int dim){
 	
 	char scod[5];
-	int i, v, addDev, fechaCC[3],fechaAA[3], flag=1;
+	int i, v, addDev, flag=1;
 	char n;
 	FILE *f;
 	
@@ -408,7 +408,7 @@ void devolucion(Producto p[],int dim){
 		scanf("%i", &addDev);
 		while(getchar()!='\n');
 		
-		p[i-1].cantidad=p[i-1].cantidad+addDev;
+		p[i-1].cantidad+=addDev;
 		
 		printf("Se han devuelto %i producto(s) al stock\n",addDev);
 		printf("%s %s %s %s %s %i %f\n",p[i-1].codigo, p[i-1].genero, p[i-1].clase, p[i-1].tipo, p[i-1].marca, p[i-1].cantidad, p[i-1].precio);
