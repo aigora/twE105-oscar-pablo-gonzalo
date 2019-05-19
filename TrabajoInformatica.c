@@ -174,7 +174,6 @@ void suministrar(Producto p[], int dim) {
 	
 	int i, j = 0, cant, flag=1;
 	char cod[5];
-	
 	FILE *f;
 	
 	printf("Productos en stock: \n");
@@ -195,8 +194,8 @@ void suministrar(Producto p[], int dim) {
 	if (j == 5) {
 		printf("Introduzca la cantidad que desea suministrar: \n");
 		scanf("%i", &cant);
-		
-		p[i].cantidad += cant;
+		while(getchar() != '\n');
+		p[i-1].cantidad += cant;
 		printf("Suministro realizado.\n");
 		printf("%s %s %s %s %s %i\n", p[i-1].codigo, p[i-1].genero, p[i-1].clase, p[i-1].tipo, p[i-1].marca, p[i-1].cantidad);
 		
@@ -210,7 +209,7 @@ void suministrar(Producto p[], int dim) {
 		fprintf(f, "%i\n", dim);
 		
 		for (i = 0; i < dim-1; i++) {
-			fprintf(f, "%s %s %s %s %s %i &f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f, "%s %s %s %s %s %i %f\n", p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
