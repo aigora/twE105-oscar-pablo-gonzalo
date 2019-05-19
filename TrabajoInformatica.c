@@ -271,7 +271,7 @@ void modificar_precio(Producto p[], int dim){
 		
 		printf("Precio modificado: \n");
 		printf("%s %f", p[i].codigo, p[i].precio);
-		sleep(3);
+	
 		f = fopen("Almacen.txt", "w");
 		
 		if(f == NULL)
