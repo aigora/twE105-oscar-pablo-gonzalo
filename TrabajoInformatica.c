@@ -417,8 +417,8 @@ void devolucion(Producto p[],int dim){
 		
 		p[i].cantidad=p[i].cantidad+addDev;
 		
-		printf("Se han devuelto &i producto(s) al stock\n",addDev);
-		printf("%s %s %s %s %s %i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+		printf("Se han devuelto %i producto(s) al stock\n",addDev);
+		printf("%s %s %s %s %s %i %.2f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		f=fopen("Almacen.txt", "w");
 		
 		if(f==NULL)
@@ -427,7 +427,7 @@ void devolucion(Producto p[],int dim){
 		fprintf(f,"%i\n",dim);
 		
 		for(i=0;i<dim-1;i++){
-			fprintf(f,"%s %s %s %s %s%i %g\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
+			fprintf(f,"%s %s %s %s %s %i %.2f\n",p[i].codigo, p[i].genero, p[i].clase, p[i].tipo, p[i].marca, p[i].cantidad, p[i].precio);
 		}
 		fclose(f);
 	}
