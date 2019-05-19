@@ -140,7 +140,7 @@ void nuevo_producto(Producto p[], int dim){
 		}
 	}
 	if(cont==dim){
-		printf("Se ha añadido un nuevo producto\n");
+		printf("Se ha anadido un nuevo producto\n");
 		printf("Cantidad: ");
 		scanf("%i",&p[dim-1].cantidad);
 		while(getchar()!='\n');
