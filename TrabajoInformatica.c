@@ -296,8 +296,8 @@ void modificar_precio(Producto p[], int dim){
 }
 
 void pedido(Producto p[], int dim){
-	int i, cant=0, j, flag = 1, lista1[30],lista2[30], x, cont=0;
-	char cod[5], gen[10], clas[15], tip[10], marc[10], flag1;
+	int i, cant=0, flag1, j, flag = 1, lista1[30],lista2[30], x, cont=0;
+	char cod[5], gen[10], clas[15], tip[10], marc[10];
 	float prec=0;
 	FILE *f;
 	
@@ -372,7 +372,7 @@ void pedido(Producto p[], int dim){
 		else
 			printf("El producto seleccionado no esta en nuestro stock\n");
 			
-		printf("\nIntroduzca s si quiere seguir añadiendo algun producto mas o cualquier otro numo letra para salir, gracias.\n");
+		printf("Introduzca s si quiere seguir añadiendo algun producto mas o cualquier otro num o tecla para salir, gracias.\n");
 		scanf("%c", &flag1);
 		fflush(stdin);
 	}while(flag1 == 's' || flag1 == 'S');	
